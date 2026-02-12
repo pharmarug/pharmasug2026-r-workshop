@@ -6,14 +6,14 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Zhenglin Ruan">
-  <meta name="dcterms.date" content="2025-07-31">
-  <title>PharmaSUG China 2025 Pre-conference Training – 3 An R Package Engineering Workflow</title>
+  <meta name="dcterms.date" content="2026-07-31">
+  <title>PharmaSUG China 2026 Pre-conference Training – 3 An R Package Engineering Workflow</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -98,7 +98,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ce29858ef31f7fc90306434e67c1dbe4.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1d9983a725b9456420da621c0f346746.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -207,7 +207,7 @@ Zhenglin Ruan
 </div>
 </div>
 
-  <p class="date">July 31, 2025</p>
+  <p class="date">July 31, 2026</p>
 </section>
 <section id="motivation" class="title-slide slide level1 center">
 <h1><span class="yellow"><i class="fa-solid fa-face-grin-stars" aria-label="face-grin-stars"></i></span> Motivation</h1>
@@ -367,13 +367,13 @@ Zhenglin Ruan
 <h2>Example - Step 1: Idea</h2>
 <p>Let’s assume that you used some lines of code to create simulated data in multiple projects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb1-2"><a></a>    <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">50</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">50</span>)),</span>
 <span id="cb1-3"><a></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
 <span id="cb1-4"><a></a>        <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">12</span>),</span>
 <span id="cb1-5"><a></a>        <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">14</span>, <span class="at">sd =</span> <span class="dv">11</span>)</span>
 <span id="cb1-6"><a></a>    )</span>
-<span id="cb1-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Idea: put the code into a package</p>
 </section>
@@ -453,7 +453,7 @@ Zhenglin Ruan
 <h2>Example - Step 3: Packaging</h2>
 <p>One-off script as starting point:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>sim.data <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, m1, m2, s1, s2) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>sim.data <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, m1, m2, s1, s2) {</span>
 <span id="cb2-2"><a></a>    <span class="fu">data.frame</span>(</span>
 <span id="cb2-3"><a></a>        <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n1), <span class="fu">rep</span>(<span class="dv">2</span>, n2)),</span>
 <span id="cb2-4"><a></a>        <span class="at">values =</span> <span class="fu">c</span>(</span>
@@ -461,14 +461,14 @@ Zhenglin Ruan
 <span id="cb2-6"><a></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n2, <span class="at">mean =</span> m2, <span class="at">sd =</span> s2)</span>
 <span id="cb2-7"><a></a>        )</span>
 <span id="cb2-8"><a></a>    )</span>
-<span id="cb2-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example---step-3-packaging-2" class="slide level2">
 <h2>Example - Step 3: Packaging</h2>
 <p>Refactored script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
 <span id="cb3-2"><a></a>    <span class="fu">data.frame</span>(</span>
 <span id="cb3-3"><a></a>        <span class="at">group =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n1), <span class="fu">rep</span>(<span class="dv">2</span>, n2)),</span>
 <span id="cb3-4"><a></a>        <span class="at">values =</span> <span class="fu">c</span>(</span>
@@ -476,7 +476,7 @@ Zhenglin Ruan
 <span id="cb3-6"><a></a>            <span class="fu">rnorm</span>(<span class="at">n =</span> n2, <span class="at">mean =</span> mean2, <span class="at">sd =</span> sd2)</span>
 <span id="cb3-7"><a></a>        )</span>
 <span id="cb3-8"><a></a>    )</span>
-<span id="cb3-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Almost all functions, arguments, and objects should be self-explanatory due to their names.</p>
 </section>
@@ -484,7 +484,7 @@ Zhenglin Ruan
 <h2>Example - Step 3: Packaging</h2>
 <p>Define that the result is a list<sup>1</sup> which is defined as class<sup>2</sup>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>getSimulatedTwoArmMeans <span class="ot">&lt;-</span> <span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2) {</span>
 <span id="cb4-2"><a></a>    result <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> n1, <span class="at">n2 =</span> n2, </span>
 <span id="cb4-3"><a></a>         <span class="at">mean1 =</span> mean1, <span class="at">mean2 =</span> mean2, <span class="at">sd1 =</span> sd1, <span class="at">sd2 =</span> sd2)</span>
 <span id="cb4-4"><a></a>    result<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -497,15 +497,15 @@ Zhenglin Ruan
 <span id="cb4-11"><a></a>    <span class="co"># set the class attribute</span></span>
 <span id="cb4-12"><a></a>    result <span class="ot">&lt;-</span> <span class="fu">structure</span>(result, <span class="at">class =</span> <span class="st">"SimulationResult"</span>)</span>
 <span id="cb4-13"><a></a>    <span class="fu">return</span>(result)</span>
-<span id="cb4-14"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-14"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn7"><p>It’s common practice to add the function arguments to the result <span class="math inline">\(\rightarrow\)</span> should be a list or class</p></li><li id="fn8"><p>To implement generics, the result must be a class</p></li></ol></aside></section>
 <section id="example---step-3-packaging-4" class="slide level2">
 <h2>Example - Step 3: Packaging</h2>
 <p>The output is impractical, e.g., we need to scroll down:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getSimulatedTwoArmMeans</span>(<span class="at">n1 =</span> <span class="dv">50</span>, <span class="at">n2 =</span> <span class="dv">50</span>, <span class="at">mean1 =</span> <span class="dv">5</span>, <span class="at">mean2 =</span> <span class="dv">7</span>, <span class="at">sd1 =</span> <span class="dv">3</span>, <span class="at">sd2 =</span> <span class="dv">4</span>)</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">getSimulatedTwoArmMeans</span>(<span class="at">n1 =</span> <span class="dv">50</span>, <span class="at">n2 =</span> <span class="dv">50</span>, <span class="at">mean1 =</span> <span class="dv">5</span>, <span class="at">mean2 =</span> <span class="dv">7</span>, <span class="at">sd1 =</span> <span class="dv">3</span>, <span class="at">sd2 =</span> <span class="dv">4</span>)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$n1
 [1] 50
@@ -526,107 +526,107 @@ $sd2
 [1] 4
 
 $data
-    group     values
-1       1  4.3085318
-2       1  7.2507463
-3       1  7.7603385
-4       1  7.6181519
-5       1  3.8011712
-6       1  7.1346274
-7       1  2.2246466
-8       1  1.5797224
-9       1  4.4450676
-10      1  4.5412857
-11      1  4.1412770
-12      1  2.1803451
-13      1  2.3093667
-14      1 -0.3958166
-15      1  2.6567318
-16      1 10.3409040
-17      1  8.1666885
-18      1  7.9231871
-19      1  4.6736150
-20      1  4.2717743
-21      1  3.3371229
-22      1  5.8128029
-23      1  9.0240783
-24      1  2.3450643
-25      1 -0.6780770
-26      1  2.3545922
-27      1  5.9192990
-28      1  6.7119205
-29      1  5.5885922
-30      1 11.9070306
-31      1  2.8536174
-32      1  7.0711721
-33      1  2.5451118
-34      1  4.1594537
-35      1  2.8693304
-36      1  6.7134178
-37      1 10.2538166
-38      1  3.9364507
-39      1  6.6141079
-40      1  7.9941269
-41      1  5.5201390
-42      1  8.3276056
-43      1  2.7852288
-44      1  6.6187439
-45      1  4.3804335
-46      1  4.4176986
-47      1  5.7012908
-48      1  4.3768493
-49      1  6.7289056
-50      1  5.3188757
-51      2  8.6597900
-52      2  4.3406301
-53      2 12.7796039
-54      2  7.0045648
-55      2 13.1952304
-56      2 -2.1594604
-57      2 11.0704184
-58      2  5.8590565
-59      2  4.5833703
-60      2  2.3095432
-61      2  4.9782035
-62      2 15.3759790
-63      2  9.5798835
-64      2  5.5813900
-65      2 14.1784838
-66      2  9.8988104
-67      2  6.2856296
-68      2 11.8881048
-69      2  6.2813503
-70      2  1.4404367
-71      2  6.1923174
-72      2  8.8228714
-73      2  4.3328003
-74      2  7.2131012
-75      2  0.8192615
-76      2  7.1277341
-77      2 13.0714286
-78      2 10.2809193
-79      2 10.3454593
-80      2  6.2139426
-81      2  6.3459276
-82      2 14.5562710
-83      2  5.8949658
-84      2 10.5018679
-85      2  6.6419736
-86      2  9.2525678
-87      2 12.8448539
-88      2  2.4956992
-89      2  2.2052089
-90      2  7.1387222
-91      2  3.9208955
-92      2  5.8114928
-93      2  1.6517912
-94      2  9.2988980
-95      2  7.2156933
-96      2 14.1308951
-97      2  5.5489472
-98      2  6.6392445
-99      2  0.7853674
-100     2 13.1490879
+    group      values
+1       1  2.67097969
+2       1  3.08191437
+3       1  3.43809857
+4       1  5.08084966
+5       1  3.39411235
+6       1  2.98488742
+7       1  3.17379331
+8       1  9.74451101
+9       1  2.46840043
+10      1  3.92970234
+11      1  4.11861806
+12      1  3.39543940
+13      1  4.48505188
+14      1  3.96343529
+15      1  4.30835196
+16      1  5.30805364
+17      1  2.75095531
+18      1 11.18516938
+19      1  5.40583509
+20      1  7.14073222
+21      1  2.94824342
+22      1  8.23078683
+23      1  4.74038481
+24      1  9.45565419
+25      1  4.83371368
+26      1 10.54637974
+27      1  5.17429900
+28      1  6.30308380
+29      1  9.42780819
+30      1 -2.44482304
+31      1  7.94008765
+32      1  8.30485593
+33      1  5.88236741
+34      1  5.91281095
+35      1  1.32082648
+36      1  0.49572158
+37      1  3.95539011
+38      1  4.94166595
+39      1  4.38036321
+40      1  5.12010984
+41      1  2.21676826
+42      1  3.61517605
+43      1  3.24707450
+44      1  8.13989233
+45      1  4.91111258
+46      1  7.47317686
+47      1  3.21570001
+48      1  8.22253779
+49      1 -2.27564972
+50      1  1.12910271
+51      2  8.28911539
+52      2  4.89791078
+53      2 10.76144960
+54      2 10.33233775
+55      2 10.13091673
+56      2  9.32033554
+57      2  5.44414846
+58      2 11.56847194
+59      2  5.85361278
+60      2  7.55257397
+61      2 11.61079590
+62      2  7.55687112
+63      2  3.45806576
+64      2  8.52697554
+65      2  9.31208723
+66      2  8.32159771
+67      2 13.23341199
+68      2  5.59356043
+69      2 11.58933461
+70      2 -0.02044782
+71      2  5.18042757
+72      2  5.12065087
+73      2  3.61148224
+74      2  7.70445748
+75      2 14.61239146
+76      2  5.12093081
+77      2 13.90363095
+78      2  3.48759521
+79      2  5.81819015
+80      2  4.19004699
+81      2  7.20405608
+82      2  5.33613434
+83      2  2.61447238
+84      2  3.97530427
+85      2 -0.60928425
+86      2  5.51292564
+87      2  4.49291953
+88      2  7.85662611
+89      2 10.96087308
+90      2  7.27634239
+91      2  3.38248536
+92      2 -1.32552015
+93      2  5.39766176
+94      2  3.00484938
+95      2  5.42412513
+96      2  0.46036977
+97      2  6.18520288
+98      2  5.48555762
+99      2  5.42891932
+100     2  3.33045367
 
 attr(,"class")
 [1] "SimulationResult"</code></pre>
@@ -644,7 +644,7 @@ attr(,"class")
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>print.SimulationResult <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>print.SimulationResult <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
 <span id="cb7-2"><a></a>    args <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">n1 =</span> x<span class="sc">$</span>n1, <span class="at">n2 =</span> x<span class="sc">$</span>n2, </span>
 <span id="cb7-3"><a></a>        <span class="at">mean1 =</span> x<span class="sc">$</span>mean1, <span class="at">mean2 =</span> x<span class="sc">$</span>mean2, <span class="at">sd1 =</span> x<span class="sc">$</span>sd1, <span class="at">sd2 =</span> x<span class="sc">$</span>sd2)</span>
 <span id="cb7-4"><a></a>    </span>
@@ -653,12 +653,12 @@ attr(,"class")
 <span id="cb7-7"><a></a>        <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">tibble</span>(x<span class="sc">$</span>data)</span>
 <span id="cb7-8"><a></a>    ), ...)</span>
 <span id="cb7-9"><a></a>}</span>
-<span id="cb7-10"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-10"><a></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co">#' @title</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co">#' @title</span></span>
 <span id="cb8-2"><a></a><span class="co">#' Print Simulation Result</span></span>
 <span id="cb8-3"><a></a><span class="co">#'</span></span>
 <span id="cb8-4"><a></a><span class="co">#' @description</span></span>
@@ -672,7 +672,7 @@ attr(,"class")
 <span id="cb8-12"><a></a><span class="co">#'      mean2 = 7, sd1 = 3, sd2 = 4, seed = 123)</span></span>
 <span id="cb8-13"><a></a><span class="co">#' print(x)</span></span>
 <span id="cb8-14"><a></a><span class="co">#'</span></span>
-<span id="cb8-15"><a></a><span class="co">#' @export</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-15"><a></a><span class="co">#' @export</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-3">
@@ -686,16 +686,16 @@ $data
 # A tibble: 100 × 2
    group values
    &lt;dbl&gt;  &lt;dbl&gt;
- 1     1   4.31
- 2     1   7.25
- 3     1   7.76
- 4     1   7.62
- 5     1   3.80
- 6     1   7.13
- 7     1   2.22
- 8     1   1.58
- 9     1   4.45
-10     1   4.54
+ 1     1   2.67
+ 2     1   3.08
+ 3     1   3.44
+ 4     1   5.08
+ 5     1   3.39
+ 6     1   2.98
+ 7     1   3.17
+ 8     1   9.74
+ 9     1   2.47
+10     1   3.93
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -719,7 +719,7 @@ $data
 </section>
 <section id="example-_pkgdown.yml-file" class="slide level2">
 <h2>Example <code>_pkgdown.yml</code> file</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a></a><span class="pp">---</span></span>
 <span id="cb10-2"><a></a><span class="fu">url</span><span class="kw">:</span><span class="at"> https://openpharma.github.io/mmrm</span></span>
 <span id="cb10-3"><a></a></span>
 <span id="cb10-4"><a></a><span class="fu">template</span><span class="kw">:</span></span>
@@ -745,7 +745,7 @@ $data
 <span id="cb10-24"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> refit_multiple_optimizers</span></span>
 <span id="cb10-25"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> df_1d</span></span>
 <span id="cb10-26"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> df_md</span></span>
-<span id="cb10-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-27"><a></a><span class="at">      </span><span class="kw">-</span><span class="at"> component</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="section" class="slide level2" data-background-iframe="https://openpharma.github.io/mmrm/main/reference/index.html" data-background-interactive="true">
 <h2></h2>
@@ -804,10 +804,10 @@ $data
 </div>
 <p>Example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>playWithAssertions <span class="ot">&lt;-</span> <span class="cf">function</span>(n1) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>playWithAssertions <span class="ot">&lt;-</span> <span class="cf">function</span>(n1) {</span>
 <span id="cb11-2"><a></a>  checkmate<span class="sc">::</span><span class="fu">assertInt</span>(n1, <span class="at">lower =</span> <span class="dv">1</span>)</span>
 <span id="cb11-3"><a></a>}</span>
-<span id="cb11-4"><a></a><span class="fu">playWithAssertions</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a></a><span class="fu">playWithAssertions</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="error">Error in playWithAssertions(-1) :</span> <span class="error">Assertion on ‘n1’ failed: Element 1 is not &gt;= 1.</span></p>
 </div>
@@ -839,7 +839,7 @@ $data
 <p>Add an optional <em>alternative</em> argument and pass it through <code>t.test</code>:<br>
 </p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>alternative <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>alternative <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-5">
@@ -877,7 +877,7 @@ $data
 <li><p>Implement the generic functions <code>summary</code> and <code>cat</code></p></li>
 <li><p>Implement the function <code>kable</code> known from the package <a href="https://cran.r-project.org/package=knitr">knitr</a> as generic. <em>Tip</em>: use</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>kable <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"kable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>kable <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">UseMethod</span>(<span class="st">"kable"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>to define kable as generic</p></li>
 </ul>
@@ -913,7 +913,7 @@ Taylor &amp; Francis Ltd.&nbsp;[<a href="https://amzn.to/3uLnxLd">Book</a> | <a 
 <li>Creators (initial authors): Friedrich Pahlke <a href="https://github.com/fpahlke/"><svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a> <a href="https://www.linkedin.com/in/pahlke/"><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a></li>
 <li>In the current version, changes were done by (later authors): Joe Zhu <a href="https://github.com/shajoezhu"><svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a> <a href="http://www.linkedin.com/in/joe-zhu-464b5818"><svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a></li>
 <li>This work is licensed under the <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</li>
-<li>The source files are hosted at <a href="https://github.com/pharmarug/pharmasug2025-r-workshop">github.com/pharmarug/pharmasug2025-r-workshop</a>, which is forked from the original version at <a href="https://github.com/openpharma/workshop-r-swe">github.com/openpharma/workshop-r-swe</a>.</li>
+<li>The source files are hosted at <a href="https://github.com/pharmarug/pharmasug2026-r-workshop">github.com/pharmarug/pharmasug2026-r-workshop</a>, which is forked from the original version at <a href="https://github.com/openpharma/workshop-r-swe">github.com/openpharma/workshop-r-swe</a>.</li>
 <li>Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made</li>
 </ul>
 
@@ -1110,7 +1110,7 @@ Taylor &amp; Francis Ltd.&nbsp;[<a href="https://amzn.to/3uLnxLd">Book</a> | <a 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1222,13 +1222,14 @@ Taylor &amp; Francis Ltd.&nbsp;[<a href="https://amzn.to/3uLnxLd">Book</a> | <a 
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
@@ -1243,7 +1244,7 @@ Taylor &amp; Francis Ltd.&nbsp;[<a href="https://amzn.to/3uLnxLd">Book</a> | <a 
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/pharmarug\.github\.io\/pharmasug2025-r-workshop\/");
+            var filterRegex = new RegExp("https:\/\/pharmarug\.github\.io\/pharmasug2026-r-workshop\/");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

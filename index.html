@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Good Software Engineering Practice for R Packages – PharmaSUG China 2025 Pre-conference Training</title>
+<title>Good Software Engineering Practice for R Packages – PharmaSUG China 2026 Pre-conference Training</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2dcac52b3b74159e1381b4ce7dfa5e3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-43a498ee2f929a5d3b049c805ab68679.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PharmaSUG China 2025 Pre-conference Training</span>
+    <span class="navbar-title">PharmaSUG China 2026 Pre-conference Training</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -157,19 +158,19 @@ In the current version, changes were done by (later authors):
 - Joe Zhu, https://github.com/shajoezhu and http://www.linkedin.com/in/joe-zhu-464b5818
 License: This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
-The source files are hosted at https://github.com/pharmarug/pharmasug2025-r-workshop, which is forked from
+The source files are hosted at https://github.com/pharmarug/pharmasug2026-r-workshop, which is forked from
 the original version at https://github.com/openpharma/workshop-r-swe.
 Important: To use this work you must provide the name of the creators (initial authors), a link to the material, a link to the license, and indicate if changes were made.
 -->
 <p>Welcome to the homepage of the workshop <em>“Good Software Engineering Practice for R Packages”</em>. In this course participants will learn hands-on skills and tools to engineer reliable R packages used in biostatistics. The day will be a mix of presentations and exercises. Participants need to be comfortable with writing functions in R and use their own laptops.</p>
 <section id="up-coming-event" class="level2">
 <h2 class="anchored" data-anchor-id="up-coming-event">Up-coming Event</h2>
-<p>The next event will be on-site, at the Radisson Collection Hotel, Yangtze Shanghai, on July 31st, 2025.</p>
+<p>The next event will be on-site, at the Radisson Collection Hotel, Yangtze Shanghai, on July 31st, 2026.</p>
 <p>Please note that all the content will be in English, delivered in English and Chinese. This event is sponsored/organized by PharmaSUG and advertised also through the R User Group (RUG) China. Presenters will be Shuang Li, Zhenglin Ruan, Chunyan Wu and Joe Zhu.</p>
 </section>
 <section id="workshop-program" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-program">Workshop Program</h2>
-<p>This is the program for 31st July 2025, all times in China Standard Time (GMT+8):</p>
+<p>This is the program for 31st July 2026, all times in China Standard Time (GMT+8):</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -214,7 +215,7 @@ Important: To use this work you must provide the name of the creators (initial a
 <li>set up a (free) <a href="https://github.com/join">GitHub.com account</a>. There are other git Platforms like <a href="https://about.gitlab.com/">Gitlab</a> or <a href="https://bitbucket.org/">Bitbucket</a> but we made the choice to go with GitHub.com for the course since it is by far the most relevant git platform in the R community.</li>
 <li>download and extract <a href="slides/download/simulatr.zip">simulatr.zip</a></li>
 <li>either make sure they have a working R software development setup on their own laptop (up-to-date git/Rtools/R/RStudio) or get access to <a href="https://posit.cloud" class="uri">https://posit.cloud</a>. The latter offers a free tier account with 25 hours of computing time per months and can be accessed using ones GitHub.com account.</li>
-<li>in your rstudio terminal, set the ssh key by <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>, then use command <code>cat ~/.ssh/id_rsa.pub</code> to show your public key, and copy and paste it to https://github.com/settings/keys, with the name “pharmasug-2025-key”.</li>
+<li>in your rstudio terminal, set the ssh key by <code>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</code>, then use command <code>cat ~/.ssh/id_rsa.pub</code> to show your public key, and copy and paste it to https://github.com/settings/keys, with the name “pharmasug-2026-key”.</li>
 </ul>
 <p>For the course, participants are required to use their own laptop to be able to participate in the exercises.</p>
 <section id="optional-reading-list" class="level3">
@@ -293,13 +294,14 @@ Important: To use this work you must provide the name of the creators (initial a
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -314,7 +316,7 @@ Important: To use this work you must provide the name of the creators (initial a
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/pharmarug\.github\.io\/pharmasug2025-r-workshop\/");
+        var filterRegex = new RegExp("https:\/\/pharmarug\.github\.io\/pharmasug2026-r-workshop\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -656,11 +658,11 @@ Important: To use this work you must provide the name of the creators (initial a
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
     <a class="nav-link" href="https://www.pharmasug-china.org/">
-<p>PharmaSUG 2025</p>
+<p>PharmaSUG 2026</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/pharmarug/pharmasug2025-r-workshop">
+    <a class="nav-link" href="https://github.com/pharmarug/pharmasug2026-r-workshop">
 <p>Source Code on GitHub</p>
 </a>
   </li>  
