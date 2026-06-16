@@ -6,12 +6,12 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.9.38">
 
-  <meta name="author" content="Zhenglin Ruan">
+  <meta name="author" content="Wenyi Liu">
   <meta name="dcterms.date" content="2026-07-31">
   <title>PharmaSUG China 2026 Pre-conference Training – 3 An R Package Engineering Workflow</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1d9983a725b9456420da621c0f346746.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-19b40c4dd1defa3329f8e0096a1ec7ed.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,14 +205,14 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Zhenglin Ruan 
+Wenyi Liu 
 </div>
 </div>
 </div>
 
   <p class="date">July 31, 2026</p>
 </section>
-<section id="motivation" class="title-slide slide level1 center">
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120666163652d6772696e2d7374617273203e7d7d-motivation" class="title-slide slide level1 center">
 <h1><span class="yellow"><i class="fa-solid fa-face-grin-stars" aria-label="face-grin-stars"></i></span> Motivation</h1>
 <!-- 
 - One-off scripts, prototype functions
@@ -526,107 +529,107 @@ $sd2
 [1] 4
 
 $data
-    group      values
-1       1  2.67097969
-2       1  3.08191437
-3       1  3.43809857
-4       1  5.08084966
-5       1  3.39411235
-6       1  2.98488742
-7       1  3.17379331
-8       1  9.74451101
-9       1  2.46840043
-10      1  3.92970234
-11      1  4.11861806
-12      1  3.39543940
-13      1  4.48505188
-14      1  3.96343529
-15      1  4.30835196
-16      1  5.30805364
-17      1  2.75095531
-18      1 11.18516938
-19      1  5.40583509
-20      1  7.14073222
-21      1  2.94824342
-22      1  8.23078683
-23      1  4.74038481
-24      1  9.45565419
-25      1  4.83371368
-26      1 10.54637974
-27      1  5.17429900
-28      1  6.30308380
-29      1  9.42780819
-30      1 -2.44482304
-31      1  7.94008765
-32      1  8.30485593
-33      1  5.88236741
-34      1  5.91281095
-35      1  1.32082648
-36      1  0.49572158
-37      1  3.95539011
-38      1  4.94166595
-39      1  4.38036321
-40      1  5.12010984
-41      1  2.21676826
-42      1  3.61517605
-43      1  3.24707450
-44      1  8.13989233
-45      1  4.91111258
-46      1  7.47317686
-47      1  3.21570001
-48      1  8.22253779
-49      1 -2.27564972
-50      1  1.12910271
-51      2  8.28911539
-52      2  4.89791078
-53      2 10.76144960
-54      2 10.33233775
-55      2 10.13091673
-56      2  9.32033554
-57      2  5.44414846
-58      2 11.56847194
-59      2  5.85361278
-60      2  7.55257397
-61      2 11.61079590
-62      2  7.55687112
-63      2  3.45806576
-64      2  8.52697554
-65      2  9.31208723
-66      2  8.32159771
-67      2 13.23341199
-68      2  5.59356043
-69      2 11.58933461
-70      2 -0.02044782
-71      2  5.18042757
-72      2  5.12065087
-73      2  3.61148224
-74      2  7.70445748
-75      2 14.61239146
-76      2  5.12093081
-77      2 13.90363095
-78      2  3.48759521
-79      2  5.81819015
-80      2  4.19004699
-81      2  7.20405608
-82      2  5.33613434
-83      2  2.61447238
-84      2  3.97530427
-85      2 -0.60928425
-86      2  5.51292564
-87      2  4.49291953
-88      2  7.85662611
-89      2 10.96087308
-90      2  7.27634239
-91      2  3.38248536
-92      2 -1.32552015
-93      2  5.39766176
-94      2  3.00484938
-95      2  5.42412513
-96      2  0.46036977
-97      2  6.18520288
-98      2  5.48555762
-99      2  5.42891932
-100     2  3.33045367
+    group     values
+1       1  6.7715798
+2       1  6.3069345
+3       1  6.1366376
+4       1  6.0559762
+5       1  3.4988338
+6       1  2.9464779
+7       1  6.5953748
+8       1  3.7962522
+9       1  3.9861193
+10      1  5.0191863
+11      1  5.2305086
+12      1  3.8040041
+13      1  8.0477881
+14      1  6.3528668
+15      1  4.6028154
+16      1  2.2581857
+17      1  1.4493696
+18      1  6.0856413
+19      1  8.1465800
+20      1  6.8100065
+21      1  1.1219089
+22      1  8.6901515
+23      1  4.4890942
+24      1  3.6732838
+25      1 -0.3391562
+26      1  7.9478884
+27      1  2.8291883
+28      1  4.4252703
+29      1  5.2008542
+30      1  3.7566360
+31      1  9.8833105
+32      1 10.4697335
+33      1  5.4735384
+34      1  3.5197382
+35      1  6.2022833
+36      1  9.3947645
+37      1  5.8109015
+38      1  7.3324557
+39      1  1.5845522
+40      1  6.0293506
+41      1 -0.6326498
+42      1 11.1224372
+43      1  5.0492332
+44      1  6.3144566
+45      1  1.2368123
+46      1  2.4149348
+47      1  3.5335751
+48      1  5.4795335
+49      1  3.9764667
+50      1  1.2505819
+51      2  4.1379973
+52      2 10.7352912
+53      2 13.2129498
+54      2  5.9324666
+55      2  5.1111585
+56      2  3.3575358
+57      2  5.6095316
+58      2  7.3589737
+59      2  3.1938622
+60      2  7.9429375
+61      2 10.5356446
+62      2  3.5681057
+63      2  5.6596403
+64      2 11.9374973
+65      2  7.7374449
+66      2  3.8678836
+67      2  6.8136305
+68      2  3.2121717
+69      2  5.2891574
+70      2  9.1274457
+71      2  9.7101667
+72      2  1.7963359
+73      2  5.4751993
+74      2 10.2010122
+75      2 12.4501297
+76      2  9.7369258
+77      2  9.1063227
+78      2  2.8837520
+79      2 12.3869391
+80      2 13.5212004
+81      2  7.8489161
+82      2  8.8801968
+83      2  6.0053763
+84      2  9.1144623
+85      2  8.0524346
+86      2 10.5419912
+87      2  9.0529044
+88      2  6.0797678
+89      2 17.8504630
+90      2 -0.8891416
+91      2  4.6106255
+92      2  1.1137853
+93      2  7.8030326
+94      2  4.7042685
+95      2 11.2169191
+96      2  8.7889015
+97      2  1.2786853
+98      2  3.8809201
+99      2 12.1864015
+100     2 11.5859128
 
 attr(,"class")
 [1] "SimulationResult"</code></pre>
@@ -686,16 +689,16 @@ $data
 # A tibble: 100 × 2
    group values
    &lt;dbl&gt;  &lt;dbl&gt;
- 1     1   2.67
- 2     1   3.08
- 3     1   3.44
- 4     1   5.08
- 5     1   3.39
- 6     1   2.98
- 7     1   3.17
- 8     1   9.74
- 9     1   2.47
-10     1   3.93
+ 1     1   6.77
+ 2     1   6.31
+ 3     1   6.14
+ 4     1   6.06
+ 5     1   3.50
+ 6     1   2.95
+ 7     1   6.60
+ 8     1   3.80
+ 9     1   3.99
+10     1   5.02
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
