@@ -21,15 +21,15 @@ Welcome to the homepage of the workshop *"Good Software Engineering Practice for
 
 ## Up-coming Event
 
-The next event will be on-site, at the Radisson Collection Hotel, Yangtze Shanghai, on July 31st, 2026.
+The next event will be on-site, at the Radisson Collection Hotel, Yangtze Shanghai, on 23rd July 2026.
 
 Please note that all the content will be in English, delivered in English and Chinese. 
 This event is sponsored/organized by PharmaSUG and advertised also through
-the R User Group (RUG) China. Presenters will be Shuang Li, Zhenglin Ruan, Chunyan Wu and Joe Zhu.
+the R User Group (RUG) China. Presenters will be Shuang Li, Wenyi Liu and Joe Zhu.
 
 ## Workshop Program
 
-This is the program for 31st July 2026, all times in China Standard Time (GMT+8):
+This is the program for 23rd July 2026, all times in China Standard Time (GMT+8):
 
 ```{r}
 #| echo: false
@@ -60,6 +60,7 @@ For the course, participants are required to use their own laptop to be able to 
 
 ## Past Events
 
+- 31st July 2025, Shanghai
 - 1st August 2024, Beijing
 - 24th March 2023, Shanghai
 - 10th February 2023, Basel
