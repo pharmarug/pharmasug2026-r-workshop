@@ -194,8 +194,8 @@ ggplot(effortData, aes(x = "", y = prop, fill = class)) +
 :::
 :::
 
-[^1]: See also [Ensuring Quality](04_quality.html) by
-    [Chunyan](https://github.com/wuc66wuc)
+[^1]: See also [Ensuring Quality](05_quality.html) by
+    [Wenyi](https://github.com/wuc66wuc)
 
 ## Why practice good engineering?
 
@@ -220,8 +220,8 @@ pexels.com]{.copyright}](thumbnails/workflow3.jpg){fig-align="center"}
 1.  Idea
 2.  Design docs
 3.  R package programming
-4.  Quality check (see [Ensuring Quality](04_quality.html) by
-    [Chunyan](https://github.com/wuc66wuc))
+4.  Quality check (see [Ensuring Quality](05_quality.html) by
+    [Wenyi](https://github.com/w316liu))
 5.  Use in production
 
 ## Example - Step 1: Idea
@@ -311,8 +311,8 @@ UML Diagram
 3.  Create R generic functions
 4.  Document all functions
 
-[^6]: See also [Ensuring Quality](04_quality.html) by
-    [Chunyan](https://github.com/wuc66wuc)
+[^6]: See also [Ensuring Quality](05_quality.html) by
+    [Wenyi](https://github.com/w316liu)
 
 ## Example - Step 3: Packaging
 
