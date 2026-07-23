@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/LICENSE.html</loc>
-    <lastmod>2026-07-17T08:13:21.622Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/02_collaboration.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/04_workflow.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/01_intro.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/listing.html</loc>
-    <lastmod>2026-07-17T08:13:21.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/03_r_packages.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/06_conclusion.html</loc>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
   </url>
   <url>
     <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/05_quality.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
   </url>
   <url>
-    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/06_conclusion.html</loc>
-    <lastmod>2026-07-17T08:13:21.628Z</lastmod>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/02_collaboration.html</loc>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
   </url>
   <url>
     <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/index.html</loc>
-    <lastmod>2026-07-17T08:13:21.626Z</lastmod>
+    <lastmod>2026-07-23T00:46:17.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/LICENSE.html</loc>
+    <lastmod>2026-07-23T00:46:17.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/listing.html</loc>
+    <lastmod>2026-07-23T00:46:17.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/01_intro.html</loc>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/03_r_packages.html</loc>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pharmarug.github.io/pharmasug2026-r-workshop/slides/04_workflow.html</loc>
+    <lastmod>2026-07-23T00:46:17.535Z</lastmod>
   </url>
 </urlset>
